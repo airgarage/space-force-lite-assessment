@@ -90,19 +90,6 @@ export function mockGetViolations(): Promise<Violation[]> {
   return new Promise(resolve => setTimeout(() => resolve(mockViolations), 300));
 };
 
-export function mockGetViolationById(id: string): Promise<Violation> {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const violation = mockViolations.find(v => v.id === id);
-      if (violation) {
-        resolve(violation);
-      } else {
-        reject(new Error('Violation not found'));
-      }
-    }, 300);
-  });
-};
-
 export function mockUpdateViolationStatus(id: string, resolved: boolean, { failureRate }: { failureRate: number }): Promise<Violation> {
   return new Promise((resolve, reject) => {
     setTimeout(() => {
